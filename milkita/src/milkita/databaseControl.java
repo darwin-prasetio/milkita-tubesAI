@@ -19,7 +19,7 @@ public class databaseControl {
     private static databaseControl loader=null;
     private String URL;
     private final String USER,PASS;
-    private final DatabaseLoader connect;
+    private DatabaseLoader connect;
     
     public databaseControl() throws Exception{
         this.connect = new DatabaseLoader();
