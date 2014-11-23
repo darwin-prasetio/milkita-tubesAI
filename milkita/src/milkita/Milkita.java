@@ -17,16 +17,16 @@ public class Milkita {
     private static databaseControl db;
     private static Instances testInstance;
     public static void main(String[] args) throws Exception {
-        db.getInstance(); // konstruktor databaseControl
+        db = new databaseControl(); // konstruktor databaseControl
         db.setDatabase("news_aggregator");
         db.setConnection(); //melakukan koneksi terhadap database
-        db.selectQuery("ARTIKEL JOIN ARTIKEL_KATEGORI_VERIFIED JOIN KATEGORI", new ArrayList<String>() {{
-            add("ID_ARTIKEL");
-            add("ARTIKEL");
+        db.selectQuery("ARTIKEL NATURAL JOIN ARTIKEL_KATEGORI_VERIFIED NATURAL JOIN KATEGORI", new ArrayList<String>() {{
+            add("ARTIKEL.ID_ARTIKEL");
             add("JUDUL");
-            add("ID_KELAS");
-            add("KATEGORI");}}, null);
-        testInstance=new Instances(db.getData());
+            add("KATEGORI.ID_KELAS");
+            add("KATEGORI.LABEL");}}, null);
+        System.out.println("a");
+        testInstance = new Instances(db.getData());
         for(int i=0;i<testInstance.numInstances();i++){ // print instances
             System.out.println(testInstance.instance(i));
         }

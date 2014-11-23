@@ -16,7 +16,6 @@ import weka.core.converters.DatabaseLoader;
  * @author user
  */
 public class databaseControl {
-    private static databaseControl loader=null;
     private String URL;
     private final String USER,PASS;
     private DatabaseLoader connect;
@@ -28,21 +27,12 @@ public class databaseControl {
         this.PASS="";
     }
     
-    public static databaseControl getInstance() throws Exception{
-        if(loader==null){
-            loader = new databaseControl();
-        }
-        return loader;
-    }
-    
     public void setDatabase(String databaseName){
         this.URL="jdbc:mysql://localhost/"+databaseName;
     }
     
     public void setConnection() throws Exception{
-        if(loader!=null){
             connect.setSource(this.URL,this.USER,this.PASS);
-        }
     }
     
     public void selectQuery(String tableName, ArrayList<String> columns, String condition){
