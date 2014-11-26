@@ -24,7 +24,7 @@ public class Milkita {
             add("ARTIKEL.ID_ARTIKEL");
             add("JUDUL");
             add("KATEGORI.ID_KELAS");
-            add("KATEGORI.LABEL");}}, null);
+            add("ARTIKEL.FULL_TEXT");}}, null);
         System.out.println("a");
         testInstance = new Instances(db.getData());
         for(int i=0;i<testInstance.numInstances();i++){ // print instances

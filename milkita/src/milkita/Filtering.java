@@ -8,6 +8,9 @@ public static String Filter(String s){
 		//todo, ngambil kata-kata gak pentingnya
 		hasil = hasil.replaceAll("[,|\\.|\\?|\"|/]", " ");
 		
+                //ngilangin enter
+                hasil = hasil.replaceAll("\n"," ");
+                
 		//ngambil angka? kayaknya gak penting deh
 		hasil = hasil.replaceAll("\\d"," ");
 		
