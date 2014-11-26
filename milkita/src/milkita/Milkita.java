@@ -24,15 +24,14 @@ public class Milkita {
         db.selectQuery("ARTIKEL NATURAL JOIN ARTIKEL_KATEGORI_VERIFIED NATURAL JOIN KATEGORI", new ArrayList<String>() {{
             add("ARTIKEL.ID_ARTIKEL");
             add("JUDUL");
-            add("KATEGORI.ID_KELAS");
+            add("KATEGORI.LABEL");
             add("ARTIKEL.FULL_TEXT");}}, null);
         testInstance = new Instances(db.getData());
         for(int i=0;i<testInstance.numInstances();i++){ // filter
             s=testInstance.instance(i).stringValue(3);
-            System.out.println(s);
             s = Filtering.Filter(s);
-            System.out.println("a");
             System.out.println(s);
+            System.out.println(testInstance.instance(i).stringValue(2));
             System.out.println();
         }
     }
