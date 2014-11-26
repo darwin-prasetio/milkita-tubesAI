@@ -21,7 +21,7 @@ public static String Filter(String s){
 		hasil = hasil.replaceAll(" januari | februari | pebruari | maret | april | mei | juni | juli | agustus | september | oktober | november | nopember | desember "," ");
 		
 		//ngambil kata-gak-penting, tapi gatau masuk kategori apa
-		hasil = hasil.replaceAll(" dari | dan | pada | untuk ", " ");
+		hasil = hasil.replaceAll("akan | ini | itu | tak | tidak | dari | dan | pada | untuk ", " ");
 		//ngambil kata hubung (gak penting kan?)
 		
 		//ngambil tanda hubung yang berdiri sendiri (laba-laba) sama (laba) kan beda

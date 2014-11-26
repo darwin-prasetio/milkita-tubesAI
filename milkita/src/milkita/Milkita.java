@@ -16,6 +16,7 @@ import weka.core.Instances;
 public class Milkita {
     private static databaseControl db;
     private static Instances testInstance;
+    private static String s;
     public static void main(String[] args) throws Exception {
         db = new databaseControl(); // konstruktor databaseControl
         db.setDatabase("news_aggregator");
@@ -25,10 +26,14 @@ public class Milkita {
             add("JUDUL");
             add("KATEGORI.ID_KELAS");
             add("ARTIKEL.FULL_TEXT");}}, null);
-        System.out.println("a");
         testInstance = new Instances(db.getData());
-        for(int i=0;i<testInstance.numInstances();i++){ // print instances
-            System.out.println(testInstance.instance(i));
+        for(int i=0;i<testInstance.numInstances();i++){ // filter
+            s=testInstance.instance(i).stringValue(3);
+            System.out.println(s);
+            s = Filtering.Filter(s);
+            System.out.println("a");
+            System.out.println(s);
+            System.out.println();
         }
     }
     
