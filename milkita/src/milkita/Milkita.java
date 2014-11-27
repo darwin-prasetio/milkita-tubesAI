@@ -6,9 +6,13 @@
 package milkita;
 
 import java.util.ArrayList;
-import weka.core.Attribute;
+import weka.classifiers.*;
+import weka.classifiers.Classifier;
+import weka.classifiers.lazy.IBk;
+import weka.classifiers.trees.J48;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.SerializationHelper;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.NominalToString;
 import weka.filters.unsupervised.attribute.StringToWordVector;
@@ -40,12 +44,23 @@ public class Milkita {
             Instance curr = instances.instance(it);
             curr.setValue(3, Utility.Filtering(curr.stringValue(3)));
         }
-
+        
         StringToWordVector filterStringToVector = new StringToWordVector();
         String[] optionsStringToVector = "-R 4".split(" ");
         filterStringToVector.setOptions(optionsStringToVector);
         filterStringToVector.setInputFormat(instances);
         instances = Filter.useFilter(instances, filterStringToVector);
+        instances.setClassIndex(2);
         
+        System.out.println(instances.toSummaryString());
+        Classifier classifier = new IBk();
+        classifier.buildClassifier(instances);
+        SerializationHelper.write("model", classifier);
+        
+        classifier = (Classifier) SerializationHelper.read("model");
+        
+        Evaluation eval = new Evaluation(instances);
+        eval.evaluateModel(classifier, instances);
+        System.out.println(eval.toSummaryString());
     }
 }
