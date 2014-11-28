@@ -27,7 +27,7 @@ public static String Filter(String s){
 		hasil = hasil.replaceAll(" besok | kemarin | hari | januari | februari | pebruari | maret | april | mei | juni | juli | agustus | september | oktober | november | nopember | desember "," ");
 		
 		//ngambil kata-gak-penting, tapi gatau masuk kategori apa
-		hasil = hasil.replaceAll(" telah | menurut | sebelum | sesudah | belum | sudah | kepada | tadi | ke | sesuai | sebanyak | lebih | namun | selain | yakni | saat | awal | dalam | juga | sudah | adalah | kata | tapi | depan | belakang |\\sakan | ini | itu | tak | tidak | dari | dan | pada | untuk "," ");
+		hasil = hasil.replaceAll(" sempat | antara | kerap | sering | sekitar | pukul | jam | samping | sebelah | masih | lagi | menjelaskan | saja | sebab | hanya | tanggal | bisa | kata | ucap | dikutip | guna | jelas | jelasnya | sebelumnya | setelahnya | seusainya | kini | lalu | nanti | bisa | ke | telah | menurut | sebelum | sesudah | belum | sudah | kepada | tadi | ke | sesuai | sebanyak | lebih | namun | selain | yakni | saat | awal | dalam | juga | sudah | adalah | kata | tapi | depan | belakang |\\sakan | ini | itu | tak | tidak | dari | dan | pada | untuk "," ");
        
 		//ngambil kata hubung (gak penting kan)
 		
