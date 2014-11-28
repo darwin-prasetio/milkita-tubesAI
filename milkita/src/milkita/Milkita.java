@@ -6,6 +6,8 @@
 
 package milkita;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import weka.core.Instances;
 
@@ -27,14 +29,18 @@ public class Milkita {
             add("KATEGORI.LABEL");
             add("ARTIKEL.FULL_TEXT");}}, null);
         testInstance = new Instances(db.getData());
+        FileWriter file = new FileWriter(new File("stopword.txt"));
         for(int i=0;i<testInstance.numInstances();i++){ // filter
             s=testInstance.instance(i).stringValue(3);
+            file.write(s+"\n\n\n");/*
             System.out.println(s);
+            System.out.println();
             s = Filtering.Filter(s);
             System.out.println(s);
             System.out.println(testInstance.instance(i).stringValue(2));
-            System.out.println();
+            System.out.println();*/
         }
+        file.close();
     }
     
 }
